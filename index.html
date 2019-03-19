@@ -8,7 +8,7 @@
     <script src="js/three.js-master/build/three.min.js"></script>
 </head>
 <body>
-        <div id="TutContainer"></div>
+        <div id="juego"></div>
     
 </body>
 
@@ -74,14 +74,14 @@ function createScene(){
     sceneWidth=window.innerWidth;
     sceneHeight=window.innerHeight;
     scene = new THREE.Scene();//the 3d scene
-    scene.fog = new THREE.FogExp2( 0xf0fff0, 0.14 );
-    camera = new THREE.PerspectiveCamera( 60, sceneWidth / sceneHeight, 0.1, 1000 );//perspective camera
+    scene.fog = new THREE.FogExp2( 0xf0fff0, 0 );
+    camera = new THREE.PerspectiveCamera( 90, sceneWidth / sceneHeight, 0.5, 1000 );//perspective camera
     renderer = new THREE.WebGLRenderer({alpha:true});//renderer with transparent backdrop
-    renderer.setClearColor(0xfffafa, 1); 
+    renderer.setClearColor(0xfffafa, 2); 
     renderer.shadowMap.enabled = true;//enable shadow
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     renderer.setSize( sceneWidth, sceneHeight );
-    dom = document.getElementById('TutContainer');
+    dom = document.getElementById('juego');
 	dom.appendChild(renderer.domElement);
 	//stats = new Stats();
 	//dom.appendChild(stats.dom);
@@ -123,7 +123,7 @@ function createScene(){
 	infoText.style.width = 100;
 	infoText.style.height = 100;
 	infoText.style.backgroundColor = "yellow";
-	infoText.innerHTML = "UP - Jump, Left/Right - Move";
+	// infoText.innerHTML = "UP - Jump, Left/Right - Move";
 	infoText.style.top = 10 + 'px';
 	infoText.style.left = 10 + 'px';
 	document.body.appendChild(infoText);
